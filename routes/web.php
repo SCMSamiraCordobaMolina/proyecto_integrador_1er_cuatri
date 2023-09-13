@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\MaestroController;
+
 use App\Models\Estudiante;
 
 /*
@@ -38,3 +40,10 @@ Route::patch('/estudiantes/{estudiante}', [EstudianteController::class,'update']
 Route::delete('/maestros/{maestro}', [MaestroController::class, 'delete'])->name('maestros.delete');
 
 Route::delete('/estudiantes/{estudiante}', [EstudianteController::class, 'delete'])->name('estudiantes.delete');
+
+Route::view('/registro', 'auth.registro')->name('registro');
+
+
+// Crea las rutas para autenticar y para cerrar sesion:
+Route::post('/login', [AuthenticatedSessionController::class,'store'])->name('login');
+Route::post('/logout', [AuthenticatedSessionController::class,'destroy'])->name('logout');

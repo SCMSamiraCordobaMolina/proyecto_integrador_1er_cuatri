@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Estudiantes')
+@section('title', 'Maestros')
 @section('content')
     <h1>Alta de Maestros</h1>
 
